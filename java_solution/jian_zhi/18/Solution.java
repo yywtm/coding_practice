@@ -31,6 +31,26 @@
  */
 class Solution {
     public ListNode deleteNode(ListNode head, int val) {
-        
+        ListNode tail = head.next;
+        ListNode pre = head;
+        if(head.val==val){
+            if(head.next!=null){
+                return head.next;
+            }
+            return null;
+        }
+        while(tail!= null){
+            
+            if(tail.val == val){
+                if(tail.next!=null){
+                    pre.next = tail.next;
+                    return head;
+                }
+                pre.next = null;
+            }
+            pre = tail;
+            tail = tail.next;
+        }
+        return head;
     }
 }
